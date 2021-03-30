@@ -1,0 +1,24 @@
+{
+  "name": "practica-petgram-pl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arantza-yes/practica-petgram-pl.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arantza-yes/practica-petgram-pl/issues"
+  },
+  "homepage": "https://github.com/arantza-yes/practica-petgram-pl#readme",
+  "devDependencies": {
+    "webpack": "^5.28.0",
+    "webpack-cli": "^4.6.0"
+  }
+}
