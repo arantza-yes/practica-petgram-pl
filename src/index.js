@@ -1,1 +1,4 @@
-console.log("empezar");
+import React from "react";
+import ReactDom from "react-dom";
+
+ReactDom.render(<h1>react avanzado</h1>, document.getElementById("app"));
