@@ -2,6 +2,6 @@ import React from 'react'
 import ReactDom from 'react-dom'
 
 ReactDom.render(
-  <h1>seguimos con react avanzado</h1>,
+  <h1>seguimos con react avanzado!!!!</h1>,
   document.getElementById('app')
 )
