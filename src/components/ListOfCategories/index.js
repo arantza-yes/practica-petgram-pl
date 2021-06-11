@@ -5,21 +5,30 @@ import { Category } from '../category'
 
 import { Item, List } from './styles'
 
-export const ListOfCategories = () => {
+function useCategoriesData () {
   // estado para las categorias
   const [categories, setCategories] = useState([])
 
-  // estado para las animaciones scroll
-  const [showFixed, setShowFixed] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   // para las categorias con el api
   useEffect(function () {
+    setLoading(true)
     window.fetch('https://petgram-server-edsf8xpy2.now.sh/categories')
       .then(res => res.json())
       .then(Response => {
         setCategories(Response)
+        setLoading(false)
       })
   }, [])
+
+  return { categories, loading }
+}
+
+export const ListOfCategories = () => {
+  const { categories, loading } = useCategoriesData()
+  // estado para las animaciones scroll
+  const [showFixed, setShowFixed] = useState(false)
 
   // para la animacion de scroll
   useEffect(function () {
@@ -34,10 +43,12 @@ export const ListOfCategories = () => {
   }, [showFixed])
 
   const renderList = (fixed) => (
-    <List className={fixed ? 'fixed' : ''}>
+    <List fixed={fixed}>
       {
-      categories.map(category => <Item key={category.id}> <Category {...category} /> </Item>)
-    }
+        loading
+          ? <Item key='loading'><Category /></Item>
+          : categories.map(category => <Item key={category.id}> <Category {...category} /> </Item>)
+      }
     </List>
   )
 
